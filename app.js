@@ -22,6 +22,7 @@ getDogImage();
 btnNext.addEventListener("click", getDogImage);
 */
 
+/*
 // hit API with await , async
 async function getDogImage() {
   try {
@@ -36,5 +37,23 @@ async function getDogImage() {
 // Event listener for the button
 btnNext.addEventListener("click", getDogImage);
 
-// Fetch an initial fact when the page loads
+// Fetch an initial image when the page loads
 getDogImage();
+
+*/
+
+// with Axios 
+async function getDogImage() {
+  try{
+    let Response = await axios.get(url) ;
+    return  imageShow.src =  Response.data.message ;   
+  }catch (error){
+    console.log("Error - found" , error) ; 
+  }
+}
+
+btnNext.addEventListener("click" , getDogImage) ; 
+// Fetch an initial image when the page is load 
+getDogImage() ; 
+
+
